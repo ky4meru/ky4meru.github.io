@@ -56,6 +56,12 @@ nxc smb -d $domain -u $username -p passwords.txt
 nxc smb -d $domain -u usernames.txt -p passwords.txt
 ```
 
+You can also leverage Kerberos protocol to do it with [Kerbrute](https://github.com/ropnop/kerbrute).
+
+```bash
+kerbrute bruteuser --dc $dc_ip -d $domain $wordlist $username
+```
+
 ## Recommendations
 
 - [ ] Use strong passwords that are not easily brute-forceable.

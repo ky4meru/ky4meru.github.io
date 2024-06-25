@@ -50,6 +50,10 @@ If you can a new computer account to the domain, use [StandIn](https://github.co
 ./Rubeus.exe asktgt /user:$ComputerName$ /aes256:$hash /nowrap
 ```
 
+## Useful links
+
+- If you observe a strange behavior with [StandIn](https://github.com/FuzzySecurity/StandIn), take a look at [GetDomain vs GetComputerDomain vs GetCurrentDomain](https://rastamouse.me/getdomain-vs-getcomputerdomain-vs-getcurrentdomain/) from Rasta Mouse.
+
 ## Recommendations
 
 - [ ] Set `ms-DS-MachineAccountQuota` to `0` for all domain users if possible, or at least for unprivileged users.

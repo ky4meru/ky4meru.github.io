@@ -34,7 +34,7 @@ permalink: /ad/rbconstrained/
 The first step of this attack is to modify `msDS-AllowedToActOnBehalfOfOtherIdentity` attribute on the target computer.
 
 ```powershell
-# Get domain objects that have needed writes to modify msDS-AllowedToActOnBehalfOfOtherIdentity.
+# Get domain objects that have needed rights to modify msDS-AllowedToActOnBehalfOfOtherIdentity.
 Get-DomainComputer | Get-DomainObjectAcl -ResolveGUIDs | ? { $_.ActiveDirectoryRights -match "WriteProperty|GenericWrite|GenericAll|WriteDacl" }
 
 # Get the SID of the principal with an SPN associated you already compromised.

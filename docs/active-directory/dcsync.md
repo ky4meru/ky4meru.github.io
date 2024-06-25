@@ -49,7 +49,7 @@ impacket-secretsdump -just-dc-user $target $domain/$username:$password@$dc_ip
 
 Once you get the NTLM hash of your target user, you can:
 * Crack it using `hashcat -m 1000`.
-* Perform Pass-the-Hash.
+* Perform [Pass the Hash](/ad/passthehash/).
 
 ## Persistence
 

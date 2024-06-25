@@ -29,12 +29,13 @@ Before starting to play with following exploits, it is a good idea to recover in
 
 ## Without an account
 
-First thing you want to achive to compromise a domain is to get an initial foothold. To do so, following attacks can be used to gain a domain joined account, either user or computer one. [Web attacks](/webapps/) can also be a good entrypoint on an Active Directory domain.
+First thing you want to achieve to compromise a domain is to get an initial foothold. To do so, following attacks can be used to gain a domain joined account, either a user or computer one.
 
-- [Bruteforce](/ad/bruteforce/)
+- [Brute-force](/ad/bruteforce/)
 - [Email Password Spraying](/ad/email/)
 - [NTLM Relay](/ad/ntlmrelay/)
 - [Password Spraying](/ad/spraying)
+- [PetitPotam [CVE-2022-26925]](/ad/petitpotam/)
 - [Pre Windows 2000 Compatibility Abuse](/ad/compatibility/)
 - [Printer Abuse](/ad/printer/)
 - [User Spraying](/ad/userspraying/)
@@ -50,9 +51,7 @@ Once you get either a low privileged domain account or an access to a domain joi
 - [Certificate Services](/ad/certs/)
 - [Constrained Delegation](/ad/constrained/)
 - [DCSync Attack](/ad/dcsync/)
-- [Diamond Tickets](/ad/diamond/)
 - [Forged Certificates](/ad/forgedcert/)
-- [Golden Tickets](/ad/golden/)
 - [GPO Abuse](/ad/gpo/)
 - [Kerberoasting](/ad/kerberoasting/)
 - [LAPS Abuse](/ad/laps/)
@@ -80,6 +79,12 @@ You also should take a look at [Windows Privilege Escalation](/windows/#privileg
 - [Trust Relationship Abuse](/ad/trust/)
 
 You also should take a look at [Windows Lateralization](/windows/#lateralization) methods.
+
+## Persistance 
+
+- [Diamond Tickets](/ad/diamond/)
+- [Golden Tickets](/ad/golden/)
+- [MachineAccountQuota Abuse](/ad/quota/)
 
 ## Useful links
 
