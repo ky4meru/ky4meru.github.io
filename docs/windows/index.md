@@ -38,9 +38,10 @@ Once you get a low privileged access on a Windows target, you can perform follow
 - [Microsoft Office Exploit](/windows/office/)
 - [SeImpersonatePrivilege Abuse](/windows/seimpersonateprivilege/)
 - [Service Hijacking](/windows/service/)
+- [SpoolFool [CVE-2022-21999]](/windows/spoolfool/)
 - [Unquoted Service Paths](/windows/unquoted/)
 
-More privilege escalation exploits are be possible if your target is joined to an [Active Directory](/ad/#privilege-escalation) since you can use your target's machine account to authenticate on the domain.
+More privilege escalation exploits are possible if your target is joined to an [Active Directory](/ad/#privilege-escalation) since you can authenticate on the domain from the machine.
 
 ## Lateralization
 
