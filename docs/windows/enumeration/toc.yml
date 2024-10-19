@@ -1,0 +1,20 @@
+- name: Automated Tools
+  href: automated-tools.html
+- name: Environment Variables
+  href: environment-variables.html
+- name: Files
+  href: files.html
+- name: Network Configuration
+  href: network-configuration.html
+- name: PowerShell History
+  href: powershell-history.html
+- name: Processes
+  href: processes.html
+- name: Services
+  href: services.html
+- name: Softwares
+  href: softwares.html
+- name: System Info
+  href: system-info.html
+- name: Users
+  href: users.html

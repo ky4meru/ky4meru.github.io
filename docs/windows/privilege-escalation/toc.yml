@@ -1,0 +1,16 @@
+- name: AppLocker
+  href: app-locker.html
+- name: Credentials Extraction
+  href: credentials-extraction.html
+- name: Living Off The Land
+  href: living-off-the-land.html
+- name: PrintNightmare [CVE-2021-34527]
+  href: print-nightmare.html
+- name: SeImpersonatePrivilege
+  href: seimpersonateprivilege.html
+- name: Service Hijacking
+  href: service-hijacking.html
+- name: SpoolFool [CVE-2022-21999]
+  href: spoolfool.html
+- name: Unquoted Service Path
+  href: unquoted-service-path.html

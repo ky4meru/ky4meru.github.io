@@ -1,4 +1,6 @@
-- name: Introduction
-  href: introduction.md
-- name: Getting Started
-  href: getting-started.md
+- name: Home
+  href: index.html
+- name: Active Directory
+  href: active-directory/toc.yml
+- name: Windows
+  href: windows/toc.yml

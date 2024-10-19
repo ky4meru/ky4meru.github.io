@@ -1,0 +1,14 @@
+- name: Brute-force
+  href: brute-force.html
+- name: Email Password Spraying
+  href: email-password-spraying.html
+- name: Password Spraying
+  href: password-spraying.html
+- name: PetitPotam [CVE-2022-26925]
+  href: petit-potam.html
+- name: Pre-Windows 2000 Computers
+  href: pre-windows-2000-computers.html
+- name: Printer Spoofing
+  href: printer-spoofing.html
+- name: Zerologon [CVE-2020-1472]
+  href: zerologon.html

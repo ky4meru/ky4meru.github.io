@@ -1,0 +1,24 @@
+- name: Account Policies
+  href: account-policies.html
+- name: AppLocker
+  href: app-locker.html
+- name: Automated Tools
+  href: automated-tools.html
+- name: Computers
+  href: computers.html
+- name: Delegations
+  href: delegations.html
+- name: Group Policy Objects
+  href: gpo.html
+- name: Local Administrator Password Solution
+  href: laps.html
+- name: System Center Configuration Manager
+  href: sccm.html
+- name: Shares
+  href: shares.html
+- name: Trust Relationships
+  href: trust-relationships.html
+- name: SYSVOL
+  href: sysvol.html
+- name: Users
+  href: users.html

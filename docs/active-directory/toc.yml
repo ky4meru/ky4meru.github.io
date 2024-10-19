@@ -1,0 +1,14 @@
+- name: Methodology
+  href: methodology.html
+- name: Recon
+  href: recon/toc.yml
+- name: Initial Access
+  href: initial-access/toc.yml
+- name: Enumeration
+  href: enumeration/toc.yml
+- name: Privilege Escalation
+  href: privilege-escalation/toc.yml
+- name: Lateralization
+  href: lateralization/toc.yml
+- name: Persistence
+  href: persistence/toc.yml

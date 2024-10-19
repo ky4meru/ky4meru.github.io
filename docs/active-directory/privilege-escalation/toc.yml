@@ -1,0 +1,24 @@
+- name: AS-REP Roasting
+  href: as-rep-roasting.html
+- name: Certificate Services Abuse
+  href: certificate-services.html
+- name: Constrained Delegation
+  href: constrained-delegation.html
+- name: DCSync
+  href: dc-sync.html
+- name: Forged Certificates
+  href: forged-certificates.html
+- name: Kerberoasting
+  href: kerberoasting.html
+- name: Local Administrator Password Solution
+  href: laps.html
+- name: NoPac [CVE-2021-42278] & [CVE-2021-42287]
+  href: no-pac.html
+- name: Resource-Based Constrained Delegation
+  href: resource-based-constrained-delegation.html
+- name: S4U2Self
+  href: s4u2self.html
+- name: System Center Configuration Manager
+  href: sccm.html
+- name: Shadow Credentials
+  href: shadow-credentials.html

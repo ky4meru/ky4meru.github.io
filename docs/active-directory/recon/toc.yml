@@ -1,0 +1,10 @@
+- name: Find Domain Name
+  href: domain-name.html
+- name: Find Domain Computers
+  href: domain-computers.html
+- name: Find Domain Controllers
+  href: domain-controllers.html
+- name: Link-local Multicast Name Resolution
+  href: llmnr.html
+- name: User Spraying
+  href: user-spraying.html

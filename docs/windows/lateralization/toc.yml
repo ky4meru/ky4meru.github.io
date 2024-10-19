@@ -1,0 +1,8 @@
+- name: DCOM
+  href: dcom.html
+- name: DPAPI
+  href: dpapi.html
+- name: PSExec
+  href: psexec.html
+- name: WinRM
+  href: winrm.html

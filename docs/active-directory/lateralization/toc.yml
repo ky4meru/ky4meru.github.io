@@ -1,0 +1,12 @@
+- name: NTLM Relay
+  href: ntlm-relay.html
+- name: OverPass the Hash
+  href: overpass-the-hash.html
+- name: Pass the Hash
+  href: pass-the-hash.html
+- name: Pass the Ticket
+  href: pass-the-ticket.html
+- name: Service Name Abuse
+  href: service-name.html
+- name: Silver Tickets
+  href: silver-tickets.html

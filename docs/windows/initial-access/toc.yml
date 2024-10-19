@@ -1,0 +1,6 @@
+- name: BlueKeep [CVE-2019-0708]
+  href: bluekeep.html
+- name: EternalBlue [MS17-010]
+  href: eternalblue.html
+- name: Kiosk Mode Evasion
+  href: kiosk-mode-evasion.html

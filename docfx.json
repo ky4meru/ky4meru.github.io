@@ -25,6 +25,8 @@
     "globalMetadata": {
       "_appName": "Camel\u0027s Diary",
       "_appTitle": "Camel\u0027s Diary",
+      "_appLogoPath": "images/logo.png",
+      "_appFaviconPath": "images/favicon.ico",
       "_enableSearch": true,
       "pdf": true
     }
