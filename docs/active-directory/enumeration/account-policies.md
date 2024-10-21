@@ -33,26 +33,56 @@ The Account Lockout Policy allows to configured following settings. **By default
 
 #### 🛠️ Do it!
 
+Depending on where you are on the way to domain administrator, there are plenty of ways to get the domain password policy and account lockout policy.
+
 # [NetExec](#tab/netexec)
+
+Using [NetExec](https://github.com/Pennyw0rth/NetExec).
 
 ```bash
 nxc smb $DomainControllerIP -d $Domain -u $Username -p $Password --pass-pol
 ```
 # [ActiveDirectory PowerShell module](#tab/powershell)
 
+From a domain joined computer with [ActiveDirectory](https://learn.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps) PowerShell module.
+
 ```powershell
-# From a domain joined computer with ActiveDirectory PowerShell module.
 Get-ADDefaultDomainPasswordPolicy
 ```
 
 # [Net](#tab/net)
 
+From a domain joined computer with [Net](https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/net-commands-on-operating-systems) command.
+
 ```bash
-# From a domain joined computer with native PowerShell.
 net accounts /domain
 ```
 
+# [Group Policy Management](#tab/gpomanagement)
+
+If you have an access to the Group Policy Management Console, follow these steps.
+
+1. Select `Domains`
+2. Select the target domain
+3. Select `Group Policy Objects`
+4. Right click on `Default Domain Policy`
+
+It will open the Group Policy Management Editor. You can find the password policy at `Computer Configuration\Policies\Windows Settings\Security Settings\Account Policies\Password Policy`.
+
 ---
+
+> [!WARNING]
+> **It is possible that several password policies exist.**
+>
+> Indeed, the company could implement another GPO and link it to specific Organizational Units (OU). Another way to do it is to [create fine grained password policies](https://activedirectorypro.com/create-fine-grained-password-policies/) you can assign to specific users and groups.
+>
+> Knowing that, it means that the **methods above get the password policy enforced for the currently logged on user**. For instance, `Account lockout threshold` could be set to `None` for you, but would be enforced for all domain privileged users.
+>
+> To get all password policies and there associated groups, use [ldapsearch-ad](https://github.com/yaap7/ldapsearch-ad) python script.
+>
+> ```bash
+> ldapsearch-ad.py -d $domain -u $username -p $password -l $domain_controller_ip -t pass-pols
+> ```
 
 #### 🏆 What's next?
 
